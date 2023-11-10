@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Searching algorithm</title>
+<style>
+pre {
+     background-color: #f0f0f0;
+padding: 10px;
+overflow-x: auto;
+}
+</style>
+ </head>
+  <body>
+<div class="content"> 
+    <h1> Searching algorithm </h1> 
+    <section id="1">
+         <h2>1. ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM LINEAR SEARCH ALGORITHM THROUGH ITERATION.</h2>
+<pre><code>
+    #include<stdio.h>
+        #include<conio.h>
+        linear(int ar[],int item,int size)
+        {
+        int i,f=0;
+        for(i=0;i<size;i++)
+        {
+        if(ar[i]==item)
+        {
+        f=1;
+        break;
+        }
+        }
+        if(f==1)
+        {
+        return i;
+        }
+        else
+        {
+        return -1;
+        }
+        }
+        void main()
+        {
+        int ar[10],item,i,search;
+        clrscr();
+        printf("Enter the arrays\n");
+        for(i=0;i<10;i++)
+        {
+        printf("Enter the array at location %d\t",i+1);
+        scanf("%d",&ar[i]);
+        }
+        printf("Enter the item you want to search\n");
+        scanf("%d",&item);
+        search=linear(ar,item,10);
+        if(search!=-1)
+        {
+        printf("Item is searched at location %d\t",search+1);
+        }
+        else
+        {
+        printf("Item is not in the list\n");
+        }
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>3. ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM LINEAR SEARCH ALGORITHM THROUGH RECURSION.
+    </h2>
+<pre><code>
+    
+    #include<stdio.h>
+        #include<conio.h>
+        int linear(int ar[],int i,int item)
+        {
+        if(ar[i]==item)
+        {
+        return i;
+        }
+        else
+        {
+        return linear(ar,i+1,item);
+        }
+        }
+        void main()
+        {
+        int ar[10],item,i,search;
+        clrscr();
+        printf("Enter the arrays\n");
+        for(i=0;i<10;i++)
+        {
+        printf("Enter the array at location %d\t",i+1);
+        scanf("%d",&ar[i]);
+        }
+        printf("Enter the item you want to search\n");
+        scanf("%d",&item);
+        search=linear(ar,0,item);
+        if(search>=0 && search<10)
+        {
+        printf("Item is searched at location %d\t",search+1);
+        }
+        else
+        {
+        printf("Item is not in the list\n");
+        }
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>5. ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM BINARY SEARCH ALGORITHM THROUGH ITERATION.
+    </h2>
+<pre><code>
+    #include<stdio.h>
+        #include<conio.h>
+        int binary(int ar[],int item,int beg,int end)
+        {
+        int mid;
+        while(beg<=end)
+        {
+        mid=(beg+end)/2;
+        if(ar[mid]==item)
+        {
+        return mid;
+        }
+        if(ar[mid]>item)
+        {
+        end=mid-1;
+        }
+        else
+        {
+        beg=mid+1;
+        }
+        }
+        return -1;
+        }
+        void main()
+        {
+        int ar[10],item,i,search,beg=0,end=9;
+        clrscr();
+        printf("Enter the arrays\n");
+        for(i=0;i<10;i++)
+        {
+        printf("Enter the array at location %d\t",i+1);
+        scanf("%d",&ar[i]);
+        }
+        printf("Enter the item you want to search\n");
+        scanf("%d",&item);
+        search=binary(ar,item,beg,end);
+        if(search!=-1)
+        {
+        printf("Item is searched at location %d\t",search+1);
+        }
+        else
+        {
+        printf("Item is not in the list\n");
+        }
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>7. ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM BINARY SEARCH ALGORITHM THROUGH RECURSION.
+    </h2>
+<pre><code>
+    #include<stdio.h>
+        #include<conio.h>
+        int binary(int ar[],int item,int beg,int end)
+        {
+        int mid;
+        if(beg<=end)
+        {
+        mid=(beg+end)/2;
+        if(ar[mid]==item)
+        {
+        return mid;
+        }
+        if(ar[mid]<item)
+        {
+        binary(ar,item,mid+1,end);
+        }
+        else
+        {
+        binary(ar,item,beg,mid-1);
+        }
+        }
+        }
+        void main()
+        {
+        int ar[10],item,i,search,beg=0,end=9;
+        clrscr();
+        printf("Enter the arrays\n");
+        for(i=0;i<10;i++)
+        {
+        printf("Enter the array at location %d\t",i+1);
+        scanf("%d",&ar[i]);
+        }
+        printf("Enter the item you want to search\n");
+        scanf("%d",&item);
+        search=binary(ar,item,beg,end);
+        if(search>=0 && search<10)
+        {
+        printf("Item is searched at location %d\t",search+1);
+        }
+        else
+        {
+        printf("Item is not in the list\n");
+        }
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>9. CALCULATE THE BEST AND WORST COMPLEXITY OF THE LINEAR SEARCHING ALGORITHM WITH EXACT TIME TAKEN BY THE ALGORITHM ON INTEGER ARRAY.
+    </h2>
+<pre><code>
+    #include<stdio.h>
+        #include<time.h>
+        int linear(int arr[],int size,int key)
+        {
+        int i,f=0;
+        for(i=0;i<size;i++)
+        {
+        if(arr[i]==key)
+        {
+        f=1;
+        break;
+        }
+        }
+        if(f==1)
+        {
+        return i;
+        }
+        else
+        {
+        return -1;
+        }
+        }
+        void main()
+        {
+        int key,arr[10],i,index;
+        clock_t start,end;
+        double cpu_time_used;
+        printf("Enter the arrays\n");
+        for(i=0;i<10;i++)
+        {
+        scanf("%d",&arr[i]);
+        }
+        printf("Enter the element\n");
+        scanf("%d",&key);
+        start=clock();
+        index =linear(arr,10,key);
+        end=clock();
+        cpu_time_used=((double)(end-start))/CLOCKS_PER_SEC;
+        if(index!=-1)
+        {
+        printf("Element found at index %d\n",index+1);
+        }
+        else
+        {
+        printf("Element is not found\n");
+        }
+        if(index==0)
+        {
+        printf("Best complexity of linear search\n");
+        }
+        else
+        {
+        printf("Worst complexity of linear search\n");
+        }
+        printf("Time taken for search: %lf seconds\n",cpu_time_used);
+        }
+    </code></pre>
+</section> 

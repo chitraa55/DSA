@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arrays</title>
+<style>
+pre {
+     background-color: #f0f0f0;
+padding: 10px;
+overflow-x: auto;
+}
+</style>
+ </head>
+  <body>
+ <div class="content"> 
+    <h1> Arrays </h1> 
+    <section id="1">
+         <h2>1. Enter an array from user and display all the value ?</h2>
+<pre><code>
+     #include<stdio.h>
+          #include<conio.h>
+          #include<dos.h>
+          int main()
+          {
+          int ar[10],i;
+          printf("Enter the arrays\n");
+          for(i=0;i<10;i++)
+          {
+          printf("\nEnter the array at location %d \t",i+1);
+          scanf("%d",&ar[i]);
+          }
+          for(i=0;i<10;i++)
+          {
+          printf("\nThe array in the location %d is %d",i+1,ar[i]);
+          }
+          }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>2. Enter an array from user and print the array in reverse order ?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i;
+            clrscr();
+            printf("Enter the arrays in ascending order\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("The arrays in reverse orders are\n");
+            for(i=10-1;i>-1;i--)
+            {
+            printf("\nThe array in location %d is %d",i+1,ar[i]);
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>3. Enter an array from user and copy the array into second array?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar1[10],ar2[10],i;
+            clrscr();
+            printf("Enter the first array\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar1[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            ar2[i]=ar1[i];
+            }
+            printf("\nThe copy of first arrays into second arrays are\n");
+            for(i=0;i<10;i++)
+            {
+            printf("\nThe array in location %d is %d",i+1,ar2[i]);
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>4. Enter an array from user and copy it into another array in reverse order?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar1[10],ar2[10],i;
+            clrscr();
+            printf("Enter the first array\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar1[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            ar2[i]=ar1[i];
+            }
+            printf("\nThe copy of first arrays in reverse orders are\n");
+            for(i=9;i>=0;i--)
+            {
+            printf("\nThe array in location %d is %d",i+1,ar2[i]);
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>5. Enter an array from user and print the number which is even ?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i;
+            clrscr();
+            printf("Enter the first array\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("Even arrays are\n");
+            for(i=0;i<10;i++)
+            {
+            if(ar[i]%2==0)
+            {
+            printf("\nThe array which is even at location %d is %d",i+1,ar[i]);
+            }
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>6. Enter an array from user and print the number which is positive ?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i;
+            clrscr();
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("Positive arrays are\n");
+            for(i=0;i<10;i++)
+            {
+            if(ar[i]>0)
+            {
+            printf("\nPositive array at location %d is %d",i+1,ar[i]);
+            }
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>7. Enter an array from user and square all the values of array ?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void square_of_array(int ar2[], int size)
+            {
+            int i;
+            for(i=0;i<size;i++)
+            {
+            printf("\nSquare of array  %d  at location %d ", ar2[i]*ar2[i],i+1);
+            }
+            }
+            void main()
+            {
+            int ar[10],i;
+            clrscr();
+            printf("Enter the arrays\n");
+            for(i=0;i<10;i++)
+            {
+            printf("\nEnter the array at location %d ",i+1);
+            scanf("%d",&ar[i]);
+            }
+            square_of_array(ar,10);
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>8. Enter an array from user and find maximum and minimum value?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i,big,small,loc1=0,loc2=0;
+            clrscr();
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            big=ar[0];
+            small=ar[0];
+            }
+            for(i=0;i<10;i++)
+            {
+            if(ar[i]>big)
+            {
+            big=ar[i];
+            loc1=i;
+            }
+            if(ar[i]<small)
+            {
+            small=ar[i];
+            loc2=i;
+            }
+            }
+            printf("The Biggest number in the array is %d at location %d",big,loc1+1);
+            printf("\nThe Smallest number in the array is %d at location %d",small,loc2+1);
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>9. Enter an array from user and find the k-th smallest value?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i,temp,j,lowest_value,size;
+            clrscr();
+            printf("Enter the size of array\t");
+            scanf("%d",&size);
+            printf("\nEnter the arrays\n");
+            for(i=0;i<size;i++)
+            {
+            printf("\nEnter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("Enter the lowest value \t");
+            scanf("%d",&lowest_value);
+            for(i=0;i<size;i++)
+            {
+            for(j=i+1;j<size;j++)
+            {
+            if(ar[i]>ar[j])
+            {
+            temp=ar[i];
+            ar[i]=ar[j];
+            ar[j]=temp;
+            }
+            }}
+            for(i=0;i<size;i++)
+            {
+            for(j=i+1;j<size;j++)
+            {
+            if(ar[i]==ar[j])
+            {
+            for(i=ar[i]-1;i<size-1;i++)
+            {
+            ar[i]=ar[i+1];
+            }
+            size--;
+            }}}
+            for(i=0;i<10;i++)
+            {
+            if(lowest_value+1==i)
+            printf("The lowest value %d",ar[i]);
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>10. Enter an array from user and add all values ?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],sum=0,i;
+            clrscr();
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            sum=sum+ar[i];
+            }
+            printf("\nThe sum of total arrays are %d\t",sum);
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>11. Enter an array from user and find the duplicate values?</h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],j,i;
+            clrscr();
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            for(j=i+1;j<10;j++)
+            {
+            if(ar[i]==ar[j])
+            {
+            printf("The duplicate arrays are %d\n",ar[i]);
+            break;
+            }
+            }
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>12. Enter an array from user and remove the duplicate values and fill with zero?
+
+        </h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],i,j;
+            clrscr();
+            printf("Enter the arrays\n");
+            for(i=0;i<10;i++)
+            {
+            printf("\nEnter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            for(j=i+1;j<10;j++)
+            {
+            if(ar[i]==ar[j])
+            {
+            ar[j]=0;
+            }
+            }
+            }
+            printf("\nAfter removing the duplicate arrays");
+            for(i=0;i<10;i++)
+            {
+            printf("\n%d",ar[i]);
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>13. Enter an array from user and count the duplicate values?
+
+        </h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],j,i,count=0;
+            clrscr();
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            for(j=i+1;j<10;j++)
+            {
+            if(ar[i]==ar[j])
+            {
+            printf("The duplicate arrays are %d\n",ar[i]);
+            count++;
+            break;
+            }
+            }
+            }
+            printf("\n The total duplicate numbers are %d",count);
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>14. Enter an array from user and print all possible combinations of the elements?
+
+        </h2>
+    <pre><code>
+        #include <stdio.h>
+            #include<conio.h>
+            
+            void printArray(int arr[], int n) {
+                int i;
+                for ( i = 0; i < n; i++) {
+                    printf("%d ", arr[i]);
+                }
+                printf("\n");
+            }
+            
+            void generateCombinations(int arr[], int data[], int start, int end, int index, int r) {
+                int i;
+                if (index == r) {
+                printArray(data, r);
+                return;
+                }
+            
+                for (i = start; i <= end && end - i + 1 >= r - index; i++) {
+                data[index] = arr[i];
+                generateCombinations(arr, data, i + 1, end, index + 1, r);
+                }
+            }
+            
+            int main() {
+                int arr[] = {1, 2, 3, 4};
+                int n = sizeof(arr) / sizeof(arr[0]);
+                int r,data[10]; // Size of each combination
+                clrscr();
+            
+                printf("Enter the size of each combination: ");
+                scanf("%d", &r);
+            
+               // Temporary array to store a combination
+            
+                generateCombinations(arr, data, 0, n - 1, 0, r);
+            
+                return 0;
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>15. Enter an array from user and print all the palindrome numbers?
+
+        </h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            int  palin(int num)
+            {
+            int i,org,rev=0,rem;
+            org=num;
+            while(num>0)
+            {
+            rem=num%10;
+            rev=rev*10+rem;
+            num=num/10;
+            }
+            if(org==rev)
+            return org;
+            else
+            return -1;
+            }
+            void main()
+            {
+            int ar[10],ar2[5],org,i;
+            clrscr();
+            printf("Enter the arrays\n");
+            for(i=0;i<5;i++)
+            {
+            printf("Enter the array at location %d \t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            for(i=0;i<5;i++)
+            {
+            ar2[i]=palin(ar[i]);
+            }
+            for(i=0;i<5;i++)
+            {
+            if(ar[i]==ar2[i])
+            printf("\nNumber is palindrome %d",ar2[i]);
+            else
+            printf("\nNumber is not palindrome %d",ar[i]);
+             }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>16. Enter two arrays from the user and check they are same or not?
+        </h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void main()
+            {
+            int ar[10],ar2[10],i;
+            clrscr();
+            printf("Enter the first array\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array in the location of %d\t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("Enter the second array\n");
+            for(i=0;i<10;i++)
+            {
+            printf("Enter the array in the location of %d\t",i+1);
+            scanf("%d",&ar2[i]);
+            }
+            for(i=0;i<10;i++)
+            {
+            if(ar[i]==ar2[i])
+            printf("\nBoth arrays are same");
+            else
+            printf("\nArrays are not same");
+            }
+            delay(4000);
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>17. Merge the two sorted arrays into one array but in sorted order?
+        </h2>
+    <pre><code>
+        #include<stdio.h>
+            #include<conio.h>
+            #include<dos.h>
+            void sorting(int[],int);
+            void main()
+            {
+            int ar[5],ar2[5],ar3[10],ar5[10],i;
+            clrscr();
+            printf("Enter the first array\n");
+            for(i=0;i<5;i++)
+            {
+            printf("Enter the array at location %d\t",i+1);
+            scanf("%d",&ar[i]);
+            }
+            printf("\nEnter the Second array\n");
+            for(i=0;i<5;i++)
+            {
+            printf("Enter the arrat at location %d\t",i+1);
+            scanf("%d",&ar2[i]);
+            }
+            for(i=0;i<5;i++)
+            {
+            ar3[i]=ar[i];
+            }
+            for(i=0;i<5;i++)
+            {
+            ar3[i+5]=ar2[i];
+            }
+            sorting(ar3,10);
+            for(i=0;i<10;i++)
+            {
+            printf("\nMerge of two arrays are %d\t",ar3[i]);
+            }
+            delay(4000);
+            }
+            void sorting(int ar4[],int size)
+            {
+            int i,j,temp;
+            for(i=0;i<size;i++)
+            {
+            for(j=i+0;j<size;j++)
+            {
+            if(ar4[i]>ar4[j])
+            {
+            temp=ar4[i];
+            ar4[i]=ar4[j];
+            ar4[j]=temp;
+            }
+            }
+            }
+            }
+        </code></pre>
+    </section> 
+    <section id="1">
+        <h2>18. Find the local minima in the array? (An element in an array is a local minima if it less than the element after it, and the element before it)
+        </h2>
+    <pre><code>
+        
+#include<stdio.h>
+    #include<conio.h>
+    #include<dos.h>
+    int local_minima(int[],int);
+    void main()
+    {
+    int ar[10],i,min;
+    clrscr();
+    printf("Enter the arrays\n");
+    for(i=0;i<5;i++)
+    {
+    printf("Enter the at location %d\t",i+1);
+    scanf("%d",&ar[i]);
+    }
+    min=local_minima(ar,5);
+    for(i=0;i<5;i++)
+    {
+    if(min==ar[i])
+    {
+    printf("\nThe local minima is %d",ar[i]);
+    }
+    }
+    delay(4000);
+    }
+    
+    int local_minima(int ar2[],int size)
+    {
+    int i,minima;
+    for(i=0;i<size;i++)
+    {
+    if(ar2[i]<ar2[i-1] && ar2[i]<ar2[i+1])
+    minima=ar2[i];
+    }
+    return minima;
+    }
+</code></pre>
+</section> 
+<section id="1">
+    <h2>19. Find the local maxima in the array? (An element in an array is a local maxima if it greater than the element after it, and the element before it)
+    </h2>
+<pre><code>#include<stdio.h>
+    #include<conio.h>
+    #include<dos.h>
+    int local_maxima(int[],int);
+    void main()
+    {
+    int ar[5],i,max;
+    clrscr();
+    printf("Enter the arrays\n");
+    for(i=0;i<5;i++)
+    {
+    printf("Enter the at location %d\t",i+1);
+    scanf("%d",&ar[i]);
+    }
+    max=local_maxima(ar,5);
+    for(i=0;i<5;i++)
+    {
+    if(max==ar[i])
+    {
+    printf("\nThe local maxima is %d",ar[i]);
+    }
+    }
+    delay(4000);
+    }
+    
+    int local_maxima(int ar2[],int size)
+    {
+    int i,maxima;
+    for(i=0;i<size;i++)
+    {
+    if(ar2[i]>ar2[i-1] && ar2[i]>ar2[i+1])
+    maxima=ar2[i];
+    }
+    return maxima;
+    }
+</code></pre>
+</section> 
+    

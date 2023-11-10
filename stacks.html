@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stacks</title>
+<style>
+pre {
+     background-color: #f0f0f0;
+padding: 10px;
+overflow-x: auto;
+}
+</style>
+ </head>
+  <body>
+<div class="content"> 
+    <h1> Stacks </h1> 
+    <section id="1">
+         <h2>1. CREATE A STACK IMPLEMENTING THE OPERATIONS ON AN INTEGER ARRAY (PUSH, POP, PEEK, ISEMPTY, ISFULL)</h2>
+<pre><code>
+    #include <stdio.h> 
+        #include <stdlib.h>
+        #include <string.h>
+        #define MAX_SIZE 10
+        int stack[MAX_SIZE];
+        int top = -1;
+        void push(int value) {
+            if (top == MAX_SIZE - 1) {
+                printf("Stack Overflow: The stack is full.\n");
+            } else {
+                stack[++top] = value;
+                printf("Pushed %d onto the stack.\n", value);
+            }
+        }
+        int pop() {
+            if (top == -1) {
+                printf("Stack Underflow: The stack is empty.\n");
+                return -1; 
+            } else {
+                int poppedValue = stack[top];
+                printf("Popped %d from the stack.\n", poppedValue);
+                return poppedValue;
+                top--;
+            }
+        }
+        int peek() {
+            if (top == -1) {
+                printf("Stack is empty. No element to peek.\n");
+                return -1;
+            } else {
+                return stack[top];
+            }
+        }
+        int isEmpty() {
+            return top == -1;
+        }
+        int isFull() {
+            return top == MAX_SIZE - 1;
+        }
+        int main() {
+            int choice, value;
+        
+            do {
+                printf("\nStack Operations:\n");
+                printf("1. Push\n");
+                printf("2. Pop\n");
+                printf("3. Peek\n");
+                printf("4. Check if Empty\n");
+                printf("5. Check if Full\n");
+                printf("0. Exit\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+        
+                switch (choice) {
+                    case 1:
+                        printf("Enter the value to push onto the stack: ");
+                        scanf("%d", &value);
+                        push(value);
+                        break;
+                    case 2:
+                        pop();
+                        break;
+                    case 3:
+                        printf("Top element: %d\n", peek());
+                        break;
+                    case 4:
+                        printf("Is the stack empty? %s\n", isEmpty() ? "Yes" : "No");
+                        break;
+                    case 5:
+                        printf("Is the stack full? %s\n", isFull() ? "Yes" : "No");
+                        break;
+                    case 0:
+                        printf("Exiting the program.\n");
+                        break;
+                    default:
+                        printf("Invalid choice. Please enter a valid option.\n");
+                }
+            } while (choice != 0);
+        
+            return 0;
+        }
+     }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>2. CREATE A STACK IMPLEMENTING THE OPERATIONS ON THE CHARACTERS ARRAY (PUSH, POP, PEEK, ISEMPTY, ISFULL)
+    </h2>
+<pre><code>        
+    #include <stdio.h> 
+
+        #define MAX_SIZE 10
+        int stack[MAX_SIZE];
+        int top = -1;
+        void push(int value) {
+            if (top == MAX_SIZE - 1) {
+                printf("Stack Overflow: The stack is full.\n");
+            } else {
+                stack[++top] = value;
+                printf("Pushed %d onto the stack.\n", value);
+            }
+        }
+        int pop() {
+            if (top == -1) {
+                printf("Stack Underflow: The stack is empty.\n");
+                return -1; 
+            } else {
+                int poppedValue = stack[top];
+                printf("Popped %d from the stack.\n", poppedValue);
+                return poppedValue;
+                top--;
+            }
+        }
+        int peek() {
+            if (top == -1) {
+                printf("Stack is empty. No element to peek.\n");
+                return -1;
+            } else {
+                return stack[top];
+            }
+        }
+        int isEmpty() {
+            return top == -1;
+        }
+        int isFull() {
+            return top == MAX_SIZE - 1;
+        }
+        int main() {
+            int choice, value;
+        
+            do {
+                printf("\nStack Operations:\n");
+                printf("1. Push\n");
+                printf("2. Pop\n");
+                printf("3. Peek\n");
+                printf("4. Check if Empty\n");
+                printf("5. Check if Full\n");
+                printf("0. Exit\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+        
+                switch (choice) {
+                    case 1:
+                        printf("Enter the value to push onto the stack: ");
+                        scanf("%d", &value);
+                        push(value);
+                        break;
+                    case 2:
+                        pop();
+                        break;
+                    case 3:
+                        printf("Top element: %d\n", peek());
+                        break;
+                    case 4:
+                        printf("Is the stack empty? %s\n", isEmpty() ? "Yes" : "No");
+                        break;
+                    case 5:
+                        printf("Is the stack full? %s\n", isFull() ? "Yes" : "No");
+                        break;
+                    case 0:
+                        printf("Exiting the program.\n");
+                        break;
+                    default:
+                        printf("Invalid choice. Please enter a valid option.\n");
+                }
+            } while (choice != 0);
+        
+            return 0;
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>3. CREATE A STACK IMPLEMENTING THE OPERATIONS ON AN INTEGER NODES (DYNAMICALLY) (PUSH, POP, PEEK, ISEMPTY, ISFULL)
+    </h2>
+<pre><code>      
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        
+        struct stack
+        {
+            int data;
+            struct stack *next;
+        };
+        struct stack *top = NULL, *temp, *newnode;
+        int push(int count)
+        {
+            newnode = (struct stack *)malloc(sizeof(struct stack));
+            if (newnode == NULL)
+            {
+                printf("Memory allocation failed\n");
+                exit(1);
+            }
+            printf("Enter the data\n");
+            scanf("%d", &(newnode->data));
+            newnode->next = top;
+            top = newnode;
+            count++;
+        
+            return count;
+        }
+        int pop(int count)
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                temp = top;
+                printf("Data from the top of the stack is %d\n", temp->data);
+                top = top->next;
+                free(temp);
+                count--;
+            }
+            return count;
+        }
+        void peek()
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                printf("Data from the top of the stack is %d\n", top->data);
+            }
+        }
+        void isempty()
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                printf("Stack is not empty\n");
+            }
+        }
+        void isfull(int count, int maxSize)
+        {
+            if (count == maxSize)
+            {
+                printf("Stack is full\n");
+            }
+            else
+            {
+                printf("Stack is not full\n");
+            }
+        }
+        int main()
+        {
+            int ch, count = 0, maxSize;
+            printf("Enter the maximum size of the stack: ");
+            scanf("%d", &maxSize);
+            while (1)
+            {
+                printf("\n1. Push\n");
+                printf("2. Pop\n");
+                printf("3. Peek\n");
+                printf("4. IsEmpty\n");
+                printf("5. IsFull\n");
+                printf("6. Exit\n");
+                printf("Enter your choice\n");
+                scanf("%d", &ch);
+                switch (ch)
+                {
+                case 1:
+                    if (count < maxSize)
+                    {
+                        count = push(count);
+                    }
+                    else
+                    {
+                        printf("Stack is full\n");
+                    }
+                    break;
+                case 2:
+                    count = pop(count);
+                    break;
+                case 3:
+                    peek();
+                    break;
+                case 4:
+                    isempty();
+                    break;
+                case 5:
+                    isfull(count, maxSize);
+                    break;
+                case 6:
+                   
+                    while (top != NULL)
+                    {
+                        temp = top;
+                        top = top->next;
+                        free(temp);
+                    }
+                    exit(0);
+                default:
+                    printf("Enter a valid number\n");
+                }
+            }
+            return 0;
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>4. CREATE A STACK IMPLEMENTING THE OPERATIONS ON THE CHARACTERS NODES (DYNAMICALLY) (PUSH, POP, PEEK, ISEMPTY, ISFULL)
+    </h2>
+<pre><code>     
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        
+        
+        struct stack
+        {
+            char ch;
+            struct stack *next;
+        };
+        
+        struct stack *top = NULL, *temp, *newnode;
+        
+        int push(int count)
+        {
+            if (top == NULL)
+            {
+                newnode = (struct stack *)malloc(sizeof(struct stack));
+                printf("Enter the character\n");
+                scanf(" %c", &(newnode->ch)); // Use a space before %c to skip newline character
+                newnode->next = NULL;
+                top = newnode;
+                count++;
+            }
+            else
+            {
+                newnode = (struct stack *)malloc(sizeof(struct stack));
+                printf("Enter the character\n");
+                scanf(" %c", &(newnode->ch));
+                newnode->next = top;
+                top = newnode;
+                count++;
+            }
+            return count;
+        }
+        
+        int pop(int count)
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                temp = top;
+                printf("Deleted data on the stack is %c\n", temp->ch);
+                top = top->next;
+                free(temp);
+                count--;
+            }
+            return count;
+        }
+        
+        void peek()
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                printf("Data from the top of the stack is %c\n", top->ch);
+            }
+        }
+        
+        void isempty()
+        {
+            if (top == NULL)
+            {
+                printf("Stack is empty\n");
+            }
+            else
+            {
+                printf("Stack is not empty\n");
+            }
+        }
+        
+        void isfull()
+        {
+            newnode = (struct stack *)malloc(sizeof(struct stack));
+            if (newnode == NULL)
+            {
+                printf("Stack is full\n");
+            }
+            else
+            {
+                printf("Stack is not full\n");
+            }
+            free(newnode);
+        }
+        
+        int main(void)
+        {
+            int choice, count = 0;
+            while (1)
+            {
+                printf("\n1. Push\n");
+                printf("2. Pop\n");
+                printf("3. Peek\n");
+                printf("4. Isempty\n");
+                printf("5. Isfull\n");
+                printf("6. Exit\n");
+                printf("Enter your choice\n");
+                scanf("%d", &choice);
+                switch (choice)
+                {
+                case 1:
+                    count = push(count);
+                    break;
+                case 2:
+                    count = pop(count);
+                    break;
+                case 3:
+                    peek();
+                    break;
+                case 4:
+                    isempty();
+                    break;
+                case 5:
+                    isfull();
+                    break;
+                case 6:
+                    while (top != NULL)
+                    {
+                        temp = top;
+                        top = top->next;
+                        free(temp);
+                    }
+                    exit(0);
+                default:
+                    printf("Enter a valid number\n");
+                }
+            }
+        }
+        
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>5. ENTER THE STRING FROM THE USER AND REVERSE THE STRING USING STACKS.
+    </h2>
+<pre><code>    
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        #define max 100
+        struct stack {
+            char b[max];
+            int top;
+        };
+        
+        void push(struct stack* s, char k) {
+            if (s->top == max - 1)
+                printf("\n Stack is full");
+            else
+                s->b[++s->top] = k;
+        }
+        
+        char pop(struct stack* s) {
+            char c;
+            if (s->top == -1) {
+                printf("\n Stack is empty");
+                return '\0';  
+            } else {
+                c = s->b[s->top--];
+                return c;
+            }
+        }
+        
+        int main() {
+            char name[max];
+            struct stack s;
+            s.top = -1;
+        
+            printf("Enter the string: ");
+            gets(name);
+        
+            int i = 0;
+            while (name[i] != '\0') {
+                push(&s, name[i]);
+                i++;
+            }
+        
+            printf("\n Reversed string: ");
+            while (s.top != -1) {
+                printf("%c", pop(&s));
+            }
+        
+            return 0;
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>6. CREATE THE PROGRAM TO MATCH THE SINGLE BRACKET USING STACKS.
+    </h2>
+<pre><code>    
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        #define max 100
+        struct stack {
+            int top;
+            char expression[max];
+        };
+        struct stack mystack;
+        
+        void push(struct stack *mystack, char k) {
+            if (mystack->top == max - 1) {
+                printf("Stack is overflow\n");
+            } else {
+                mystack->expression[++mystack->top] = k;
+            }
+        }
+        char pop(struct stack *mystack) {
+            if (mystack->top == -1) {
+                printf("Stack is underflow\n");
+                return '\0';
+            } else {
+                return mystack->expression[mystack->top--];
+            }
+        }
+        int isempty(struct stack *mystack) {
+            return (mystack->top == -1);
+        }
+        int main() {
+            char expression[max];
+            int i = 0;
+            char symbol;
+        
+            mystack.top = -1;
+        
+            printf("\nEnter the Expression: ");
+            scanf("%s", expression);
+        
+            while (expression[i] != '\0') {
+                switch (expression[i]) {
+                    case '(':
+                    case '[':
+                    case '{':
+                        push(&mystack, expression[i]);
+                        break;
+                    case ')':
+                        symbol = pop(&mystack);
+                        if (symbol != '(') {
+                            printf("Expression is unmatched\n");
+                            return 0;
+                        }
+                        break;
+                    case ']':
+                        symbol = pop(&mystack);
+                        if (symbol != '[') {
+                            printf("Expression is unmatched\n");
+                            return 0;
+                        }
+                        break;
+                    case '}':
+                        symbol = pop(&mystack);
+                        if (symbol != '{') {
+                            printf("Expression is unmatched\n");
+                            return 0;
+                        }
+                        break;
+                }
+                i++;
+            }
+        
+            if (!isempty(&mystack)) {
+                printf("Expression is unmatched\n");
+            } else {
+                printf("Expression is okay\n");
+            }
+        
+            return 0;
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>7. CREATE TWO INTEGER STACKS IN A SINGLE ARRAY.
+    </h2>
+<pre><code> 
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        #define MAX_SIZE 20
+        
+        struct TwoStacks
+        {
+            int arr[MAX_SIZE];
+            int top1;
+            int top2;
+        };
+        
+        void initialize(struct TwoStacks *stacks)
+        {
+            stacks->top1 = -1;
+            stacks->top2 = MAX_SIZE;
+        }
+        
+        void push1(struct TwoStacks *stacks, int value)
+        {
+            if (stacks->top1 < stacks->top2 - 1)
+            {
+                stacks->arr[++stacks->top1] = value;
+                printf("Pushed %d onto Stack 1\n", value);
+            }
+            else
+            {
+                printf("Stack 1 overflow\n");
+            }
+        }
+        
+        void push2(struct TwoStacks *stacks, int value)
+        {
+            if (stacks->top1 < stacks->top2 - 1)
+            {
+                stacks->arr[--stacks->top2] = value;
+                printf("Pushed %d onto Stack 2\n", value);
+            }
+            else
+            {
+                printf("Stack 2 overflow\n");
+            }
+        }
+        
+        int pop1(struct TwoStacks *stacks)
+        {
+            if (stacks->top1 >= 0)
+            {
+                int value = stacks->arr[stacks->top1--];
+                printf("Popped %d from Stack 1\n", value);
+                return value;
+            }
+            else
+            {
+                printf("Stack 1 underflow\n");
+                return -1;
+            }
+        }
+        
+        int pop2(struct TwoStacks *stacks)
+        {
+            if (stacks->top2 < MAX_SIZE)
+            {
+                int value = stacks->arr[stacks->top2++];
+                printf("Popped %d from Stack 2\n", value);
+                return value;
+            }
+            else
+            {
+                printf("Stack 2 underflow\n");
+                return -1;
+            }
+        }
+        
+        int main()
+        {
+            struct TwoStacks stacks;
+            initialize(&stacks);
+        
+            int choice, value;
+        
+            do
+            {
+                printf("\n1. Push to Stack 1\n");
+                printf("2. Push to Stack 2\n");
+                printf("3. Pop from Stack 1\n");
+                printf("4. Pop from Stack 2\n");
+                printf("5. Exit\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+        
+                switch (choice)
+                {
+                case 1:
+                    printf("Enter value to push to Stack 1: ");
+                    scanf("%d", &value);
+                    push1(&stacks, value);
+                    break;
+                case 2:
+                    printf("Enter value to push to Stack 2: ");
+                    scanf("%d", &value);
+                    push2(&stacks, value);
+                    break;
+                case 3:
+                    pop1(&stacks);
+                    break;
+                case 4:
+                    pop2(&stacks);
+                    break;
+                case 5:
+                    printf("Exiting the program\n");
+                    break;
+                default:
+                    printf("Invalid choice, please try again\n");
+                }
+        
+            } while (choice != 5);
+        
+            return 0;
+        }
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>9. ENTER THE INFIX EXPRESSION FROM USER AND CONVERT INTO PREFIX EXPRESSION.
+    </h2>
+<pre><code> 
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        
+        #define max 20
+        char stack[max];
+        int top=-1;
+        char pop();
+        void push(char item);
+        int precedence(char symbol)
+        {
+            int p;
+            switch(symbol)
+            {
+                case'+':
+                    case'-':
+                        p=2;
+                        break;
+                        case'*':
+                        case'/':
+                            p=4;
+                            break;
+                        case'^':
+                            p=6;
+                            break;
+                            case'(':
+                                case')':
+                                    case'#':
+                                        p=1;
+                                        break;
+            }
+            return p;
+        }
+        int isoperator(char symbol)
+        {
+            switch(symbol)
+            {
+                case'+':
+                    case'-':
+                        case'*':
+                            case'/':
+                                case'^':
+                                    case'(':
+                                    case')':
+                                        return 1;
+                                        default:
+                                            return 0;
+            }
+        }
+        void convertip(char infix[],char postfix[])
+        {
+            int i,symbol,j=0;
+            stack[++top]='#';
+            for(i=0;iprecedence(stack[top]))
+                            push(symbol);
+                            else
+                            {
+                                while(precedence(symbol)<=precedence(stack[top]))
+                                {
+                                    postfix[j]=pop();
+                                    j++;
+                                }
+                                push(symbol);
+                            }
+                        }
+                    
+                }
+        }
+        while(stack[top]!='#')
+        {
+            postfix[j]=pop();
+            j++;
+        }
+        postfix[j]='\0';
+        }
+        int main()
+        {
+            char infix[20],postfix[20];
+            printf("Enter the infic notation:\n");
+            gets(infix);
+            convertip(infix,postfix);
+            printf("the postfix notation is:\n");
+            puts(postfix);
+            getch();
+        }
+        void push(char item)
+        {
+            top++;
+            stack[top]=item;
+        }
+        char pop()
+        {
+            char a;
+            a=stack[top];
+            top--;
+            return a;
+        }
+        
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>10. ENTER THE INFIX EXPRESSION FROM USER AND CONVERT INTO POSTFIX EXPRESSION
+    </h2>
+<pre><code> #include <stdio.h> 
+    #include <stdlib.h> 
+    
+    #define max 20
+    char stack[max];
+    int top=-1;
+    char pop();
+    void push(char item);
+    int precedence(char symbol)
+    {
+        int p;
+        switch(symbol)
+        {
+            case'+':
+                case'-':
+                    p=2;
+                    break;
+                    case'*':
+                    case'/':
+                        p=4;
+                        break;
+                    case'^':
+                        p=6;
+                        break;
+                        case'(':
+                            case')':
+                                case'#':
+                                    p=1;
+                                    break;
+        }
+        return p;
+    }
+    int isoperator(char symbol)
+    {
+        switch(symbol)
+        {
+            case'+':
+                case'-':
+                    case'*':
+                        case'/':
+                            case'^':
+                                case'(':
+                                case')':
+                                    return 1;
+                                    default:
+                                        return 0;
+        }
+    }
+    void convertip(char infix[],char postfix[])
+    {
+        int i,symbol,j=0;
+        stack[++top]='#';
+        for(i=0;iprecedence(stack[top]))
+                        push(symbol);
+                        else
+                        {
+                            while(precedence(symbol)<=precedence(stack[top]))
+                            {
+                                postfix[j]=pop();
+                                j++;
+                            }
+                            push(symbol);
+                        }
+                    }
+                
+            }
+    }
+    while(stack[top]!='#')
+    {
+        postfix[j]=pop();
+        j++;
+    }
+    postfix[j]='\0';
+    }
+    int main()
+    {
+        char infix[20],postfix[20];
+        printf("Enter the infic notation:\n");
+        gets(infix);
+        convertip(infix,postfix);
+        printf("the postfix notation is:\n");
+        puts(postfix);
+        getch();
+    }
+    void push(char item)
+    {
+        top++;
+        stack[top]=item;
+    }
+    char pop()
+    {
+        char a;
+        a=stack[top];
+        top--;
+        return a;
+    }
+</code></pre>
+</section> 
+<section id="1">
+    <h2>11. CREATE A PROGRAM TO EVALUATE THE PREFIX EXPRESSION.
+    </h2>
+<pre><code>
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        
+        void push(int item, int *top, char stack[], int size) {
+            if (*top == size - 1) {
+                printf("Stack overflow\n");
+            } else {
+                stack[++(*top)] = item;
+            }
+        }
+        
+        int pop(int *top, char stack[]) {
+            if (*top == -1) {
+                printf("Stack underflow\n");
+                return -1;
+            } else {
+                return stack[(*top)--];
+            }
+        }
+        
+        char isOperator(char c) {
+            return (c == '+' || c == '-' || c == '*' || c == '/');
+        }
+        
+        int performOperation(int operand1, int operand2, char operator) {
+            switch (operator) {
+                case '+':
+                    return operand1 + operand2;
+                case '-':
+                    return operand1 - operand2;
+                case '*':
+                    return operand1 * operand2;
+                case '/':
+                    if (operand2 == 0) {
+                        printf("Division by zero\n");
+                        exit(1);
+                    }
+                    return operand1 / operand2;
+                default:
+                    printf("Invalid operator: %c\n", operator);
+                    exit(1);
+            }
+            return -1;
+        }
+        
+        int evaluatePrefix(char prefix[]) {
+            int i, len, top = -1;
+            char c, stack[20];
+            len = strlen(prefix);
+            for (i = len - 1; i >= 0; i--) {
+                c = prefix[i];
+        
+                if (isdigit(c)) {
+                    push(c - '0', &top, stack, 19); 
+                  } else if (isOperator(c)) {
+                    int operand1 = pop(&top, stack);
+                    int operand2 = pop(&top, stack);
+                    int result = performOperation(operand1, operand2, c);
+                    push(result, &top, stack, 19);
+                }
+            }
+            return pop(&top, stack);
+        }
+        
+        int main() {
+            char prefix[20];
+            int result;
+            int top = -1;
+            char stack[20];
+            printf("Enter a prefix expression: ");
+            scanf("%s", prefix);
+            result = evaluatePrefix(prefix);
+            printf("Result: %d\n", result);
+        
+            return 0;
+        }
+        
+    </code></pre>
+</section> 
+<section id="1">
+    <h2>1. CREATE A PROGRAM TO EVALUATE THE PostFIX EXPRESSION.
+    </h2>
+<pre><code>
+    #include <stdio.h> 
+        #include <stdlib.h> 
+        
+        void push(int item, int *top, char stack[], int size) {
+            if (*top == size - 1) {
+                printf("Stack overflow\n");
+            } else {
+                (*top)++;
+                stack[*top] = item;
+            }
+        }
+        
+        int pop(int *top, char stack[]) {
+            if (*top == -1) {
+                printf("Stack underflow\n");
+                return -1;
+            } else {
+                return stack[(*top)--];
+            }
+        }
+        
+        char isOperator(char c) {
+            return (c == '+' || c == '-' || c == '*' || c == '/');
+        }
+        
+        int performOperation(int operand1, int operand2, char operator) {
+            switch (operator) {
+                case '+':
+                    return operand1 + operand2;
+                case '-':
+                    return operand1 - operand2;
+                case '*':
+                    return operand1 * operand2;
+                case '/':
+                    if (operand2 == 0) {
+                        printf("Division by zero\n");
+                        exit(1);
+                    }
+                    return operand1 / operand2;
+                default:
+                    printf("Invalid operator: %c\n", operator);
+                    exit(1);
+            }
+            return -1;
+        }
+        
+        int evaluatePostfix(char* postfix) {
+            int i, len, top = -1;
+            char c, stack[20];
+            len = strlen(postfix);
+            for (i = 0; i < len; i++) {
+                c = postfix[i];
+                if (isdigit(c)) {
+                    int operand = c - '0';
+                    push(operand, &top, stack, 19);
+                } else if (isOperator(c)) {
+                    int operand2 = pop(&top, stack);
+                    int operand1 = pop(&top, stack);
+                    int result = performOperation(operand1, operand2, c);
+                    push(result, &top, stack, 19);
+                }
+            }
+            return pop(&top, stack);
+        }
+        int main() {
+            char postfix[20];
+            int result;
+            int top = -1; 
+            char stack[20];
+            printf("Enter a postfix expression: ");
+            scanf("%s", postfix);
+            result = evaluatePostfix(postfix);
+            printf("Result: %d\n", result);
+        
+            return 0;
+        }
+                
+    </code></pre>
+</section>   
